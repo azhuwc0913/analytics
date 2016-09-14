@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>管理后台</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link href="Public/admin/css/dashboard.css" rel="stylesheet">
+
+
+    <link href="Public/bootstrap/css/bootstrap-responsiv.css" rel="stylesheet">
+    <link href="Public/bootstrap/css/dataTables.bootstrap.min.css" rel="stylesheet">
+
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+
+    <!-- Latest compiled and minified Locales -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/locale/bootstrap-table-zh-CN.min.js"></script>
+
+    <script src="Public/bootstrap-datepicker/js/bootstrap-datetimepicker.js"></script>
+    <!---<script src="Public/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>-->
+    <link href="Public/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="Public/bootstrap-datepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+    <script src="Public/bootstrap-datepicker/js/bootstrap-table-export.min.js"></script>
+    <script src="//rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js"></script>
+
+    <script src="Public/bootstrap-datepicker/js/bootstrap-table-filter-control.min.js"></script>
+    <style>
+        .nav{
+            display: inline;
+            float: left;
+            margin: 0 auto;
+        }
+        .con{
+            color: #00a5e0;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Subscription Report</a>
+        </div>
+        <include file="./Public/admin/navbar.html" keywords="1" />
+
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <include file="./Public/admin/menu.html" keywords="2" />
+        <!--正式内容开始-->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main ">
+
+
+            <h2 class="sub-header">KAKA GAMES Report</h2>
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('.dropdown-toggle').dropdown();
+                });
+
+            </script>
+            <div class="nav">
+            <span style="font-size: large;font-weight: 100">extension_id:</span><select name="extension_id"  class="form-control select select-primary" data-toggle="select" style="width: 150px;">
+                <option value="0">请选择...</option>
+                <?php foreach($extension_id as $v):?>
+                <option value="<?php echo $v['extension_id']?>"><?php echo $v['extension_id']?></option>
+                <?php endforeach;?>
+            </select>
+            </div>
+            <div class="nav">
+            <span style="font-size: large;font-weight: 100">landing_id:</span><select name="landing_id"  class="form-control select select-primary" data-toggle="select" style="width: 150px;">
+            <option value="0">请选择...</option>
+            <?php foreach($landing_data as $v):?>
+            <option value="<?php echo $v['landing_id']?>"><?php echo $v['landing_id']?></option>
+            <?php endforeach;?>
+        </select>
+        </div>
+            <div class="nav">
+                <span style="font-size: large;font-weight: 100">pay_status:</span><select name="pay_status"  class="form-control select select-primary" data-toggle="select" style="width: 150px;">
+                <option value="">请选择...</option>
+                <?php foreach($pay_status as $v):?>
+                <option value="<?php echo is_null($v['payment_status'])?-1:$v['payment_status']?>"><?php echo is_null($v['payment_status'])?-1:$v['payment_status']?></option>
+                <?php endforeach;?>
+            </select>
+            </div>
+            <div class="input-group input-daterange control-group" style="clear: both">
+                <span class="input-group-addon">From</span>
+
+                <input size="16" type="text" class="form-control" value="<?php echo date('Y-m-d H:i:s', $start_time)?>" name="start" >
+                <span class="input-group-addon">To</span>
+                <input type="text" class="form-control" value="<?php echo date('Y-m-d H:i:s', $end_time)?>" name="end">
+            </div>
+            <input type="hidden" id="dtp_input1" value="" /><br/>
+            <br/>
+            <a class="btn btn-default submit" href="javascript:void(0)" role="button">筛选</a><br />
+
+            <div id="res" style="position: relative;margin-top:30px">
+
+            </div>
+
+            <div class="table"></div>
+
+
+            <!--page-->
+        </div>
+        <!--正式内容结束-->
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">提示</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer" style="display: none;">
+                <button type="button" class="btn btn-default" data-dismiss="modal">知道了</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="Public/bootstrap/js/jquery.dataTables.min.js" type="text/javascript" language="javascript"></script>
+<script src="Public/bootstrap/js/dataTables.bootstrap.min.js" type="text/javascript" language="javascript"></script>
+<script>
+    $('.table').bootstrapTable({
+        url: '?m=Center&c=Admin&a=dataList&web=kaka-games&start_time='+$("input[name='start']").val(),
+        sidePagination:'client',
+        showRefresh:true,
+        sortName:"id",
+        sortOrder:"desc",
+        silentSort:true,
+        pagination:true,
+        pageSize:20,
+        search:true,
+        showExport:true,
+        filterControl:true,
+        showHeader:true,
+        showColumns:true,
+        minimumCountColumns:1,
+
+        columns: [{
+            field: 'id',
+            title: 'item ID',
+            sortable: true,
+        },{
+            field: 'gad_id',
+            title: 'gad_id',
+            sortable: true,
+        },{
+            field: 'extension_id',
+            title: 'extension_id',
+            filterControl:'select'
+        },{
+            field: 'landing_id',
+            title: 'Landing ID',
+            sortable: true,
+            filterControl:'select'
+        },{
+                field: 'subext_id',
+                title: 'subext_id',
+                filterControl:'select'
+            },{
+                field: 'payment_status',
+                title: '支付状态',
+                sortable: true,
+                filterControl:'select'
+            },{
+                field: 'create_time',
+                title: '创建时间',
+                sortable: true
+            },{
+            field: 'user_real_click',
+            title: 'User Real Click',
+            sortable: true,
+            filterControl:'select'
+        }],
+        responseHandler: function (res) {
+            html = '';
+            if(res.condition) {
+                for(var i in res.condition){
+                    html+="<span class='con'>"+i+":"+res.condition[i]+"</span>|";
+                }
+            }
+            html+="<span class='con'>count:"+res.count+"</span>";
+            $('#res').html(html);
+            return res.messages;
+        }
+    });
+
+    $('.input-daterange input').each(function() {
+        $(this).datetimepicker({
+            //    'startDate':'2015/5/5',
+            'format':'yyyy-mm-dd hh:ii',
+            'language':'zh-CN',
+            'todayBtn':true,
+            'autoclose':true,
+            'todayHighlight':true,
+            'keyboardNavigation':true,
+
+        });
+    });
+    $(".submit").click(function(){
+        $('.table').bootstrapTable('refresh', {url: '?m=Center&c=Admin&a=dataList&web=kaka-games&pay_status='+$("select[name=pay_status]").val()+'&extension_id='+$("select[name=extension_id]").val()+'&landing_id='+$("select[name=landing_id]").val()+'&start_time='+$("input[name='start']").val()+'&end_time='+$("input[name='end']").val()});
+    });
+
+</script>
+</html>

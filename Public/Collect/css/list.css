@@ -1,0 +1,52 @@
+*{margin:0;padding:0;}
+li{list-style:none;}
+a{text-decoration:none;color:#000;}
+body{font-size:12px;font-family:微软雅黑;}
+/*css重置默认样式*/
+
+/*IE6 BUG*/
+img{border:none;}
+br{height:0;}
+
+
+/*通用样式 开始*/
+.clear{clear:both;}
+.last{border:none!important;}
+.no-margin{margin:0!important;}
+.no-border{border:none!important;}
+.float-left{float:left;}
+.float-right{float:right;}
+
+.top{width:100%;font-size:15px;color:gray;border-bottom:1px solid #ccc;}
+.s1{float:left;width:49%;text-align:center;padding:7px 0;border-right:1px solid #ccc;}
+.s2{float:left;width:49%;text-align:center;padding:7px 0;}
+.left{float:left;border:1px solid #ccc;border-radius:3px;padding:5px;}
+.left img{width:55px;height:60px;}
+.list li{padding:10px;border-bottom:1px solid #ccc;font-size:13px;}
+.mid{float:left;padding-left:5px;}
+.mid p{color:#ccc;}
+.gwc{background:#37a1d7;width:40px;height:40px;line-height:40px;text-align:center;border-radius:50%;float:right;}
+.gwc img{width:25px;padding-top:8px;}
+.footer{position:fixed;bottom:0;left:0;width:100%;border-top:1px solid #ccc;width:100%;background:#ededed;padding:4px 0;}
+.footer img{width:25px;}
+.footer a{width:33%;text-align:center;display:block;float:left;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
