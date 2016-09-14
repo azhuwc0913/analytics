@@ -1,0 +1,36 @@
+<div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+              <!--[keywords]  class="active"  (current)</span>-->
+<!--              {$Think.ACTION_NAME}-->
+        <li <eq name="Think.ACTION_NAME" value="main">class="active"</eq>><a href="{:U(main)}">Launch </a></li>
+            <li <eq name="Think.ACTION_NAME" value="member">class="active"</eq>
+                <eq name="Think.ACTION_NAME" value="memberList">class="active"</eq>><a href="{:U(member)}">Member</eq></a></li>
+            <ol><a href="{:U(member)}">Admin Manage</a></ol>
+            <li <eq name="Think.ACTION_NAME" value="lawyer">class="active"</eq>
+                
+            <li <eq name="Think.ACTION_NAME" value="report">class="active"</eq>
+                <eq name="Think.ACTION_NAME" value="report">class="active"</eq>><a href="{:U(report)}">Subscription</eq></a></li>
+              <ul style="list-style-type: none">
+                  <li <eq name="Think.ACTION_NAME" value="report">class="active"</eq>>KAKA GAMES
+                  <ol><a href="<?php echo U('report', array('web'=>'kaka-games'))?>">Report</a></ol>
+                  <ol><a href="<?php echo U('monthReport', array('web'=>'kaka-games'))?>">Month Report</a></ol>
+                  </li>
+              </ul>
+              <ul style="list-style-type: none">
+                  <li <eq name="Think.ACTION_NAME" value="report">class="active"</eq>>SURPRIZE BOX
+                  <ol><a href="<?php echo U('report', array('web'=>'surprizeboxx'))?>">Report</a></ol>
+                  <ol><a href="<?php echo U('monthReport', array('web'=>'surprizeboxx'))?>">Month Report</a></ol>
+                  </li>
+              </ul>
+            <!--<ol><a href="{:U(report)}">Report</a></ol>-->
+            <!--<ol><a href="{:U(monthReport)}">Month Report</a></ol>-->
+
+            <li <eq name="Think.ACTION_NAME" value="lawyer">class="active"</eq>
+
+          <li <eq name="Think.ACTION_NAME" value="report">class="active"</eq>
+          <eq name="Think.ACTION_NAME" value="report">class="active"</eq>><a href="{:U(statics)}">Data Statistics</eq></a></li>
+          <ol><a href="<?php echo U('statics', array('web'=>'kaka-games'))?>">KAKA GAMES</a></ol>
+          <li <eq name="Think.ACTION_NAME" value="lawyer">class="active"</eq>
+                <li><a href="{:U(logout)}">Logout</a></li>
+          </ul>
+        </div>   

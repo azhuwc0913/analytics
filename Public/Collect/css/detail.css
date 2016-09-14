@@ -1,0 +1,69 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-size: 12px;
+	font-family:"微软雅黑";
+	
+
+}
+a{text-decoration:none;color:black;}
+li{list-style-type: none;}
+img{ border:0;}
+ul{margin:0;padding:0;width:100%;}
+.clear{clear:both;}
+.top{width:100%;margin:0 auto;text-align: center;}
+.top img{width:40%;margin-top:20px;}
+.name{line-height:50px;font-size:14px;text-indent:15px;color:#5D5D5D;}
+.name span{font-weight:bold;font-size:16px;color:black;}
+.price{float:left;}
+.price p{font-size:14px;text-indent:10px;}
+.price span{font-size:16px;margin-left:14px;color:red;font-weight:bold;}
+.sript{float:right;border:1px solid #980307;margin-right:15px;margin-top:16px;height: 50px;}
+.sript p{font-size:14px;text-align: center;margin:0px;padding: 3px 0px;}
+.sript a{padding:0px 16px;background-color:#980307;color:white;font-size:16px;text-align:center;margin-top:3px;padding-bottom: 3px;}
+.bar{border-bottom:3px solid #ececec;padding-bottom:10px;}
+.md p{font-size:14px;text-indent:20px;}
+.md .p1{font-size:12px;color:#5d5d5d;}
+.md,.fbxx{border-bottom:3px solid #ececec;}
+.fbxx p{font-size:14px;text-indent:20px;margin:8px 0px;color:#5D5D5D;}
+.fbxx p span{font-weight:bold;color:black;}
+.jytx p{width:88%;margin:0 auto;text-indent:20px;color:red;line-height:20px;}
+.p3{font-size:16px;text-indent:20px;font-weight:bold;}
+.p4{text-indent:35px;line-height:24px;color:#5D5D5D;}
+.cpjs p{width:88%;margin:0 auto;text-indent:27px;line-height:23px;}
+.cpxx{padding-bottom:10px;}
+.hymd{font-weight:bold;}
+
+
+
+.xianshi{font-size:16px;padding:10px 0;padding-left:10px;font-weight: bold;}
+.money{padding:3px 10px;color:gray;font-size: 14px;}
+.money img{width:100%;}
+.money .bg{width: 98%; margin: 0 auto 0 auto;background-color: #ccc; height: 15px;}
+.money .bg .p{height: 15px; background-color: #ffb412;}
+.xym{margin:10px 10px;background-color: #ffb412;text-align: center;line-height: 40px;border-radius: 8px;}
+.xym a{color:#fff;font-size: 16px;display: block;}
+.list{padding-top:15px;}
+.list a{font-size:14px;color:#333;}
+.list img{position:absolute;right:15px;top:12px;width:15px;}
+.list li{position:relative;border-top:1px solid #ccc;padding:10px 15px;}
+.gmjl{border-bottom:1px solid #ccc;}
+
+.footer{width:100%;}
+.jl{font-size: 16px;padding:10px;}
+.img{margin-left:10px; background-image: url('../images/log3.jpg'); background-repeat: repeat-y; line-height: 30px;}
+.wz{line-height: 30px;margin-left:10px;font-size: 14px; background-image: url('../images/log3.jpg'); background-repeat: repeat-y;}
+.wz span{color:red;}
+.time{float:right;line-height: 30px;margin-right:10px;color:gray;}
+
+
+
+
+
+
+
+
+
+
